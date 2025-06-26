@@ -15,9 +15,9 @@ import jakarta.annotation.PostConstruct;
 public class PersonService {
     private List<Person> persons = new ArrayList<>();
     private Map<String, Person> personsMap = new HashMap<>(); // for instant lookup på eposter som key
-
+    
     @PostConstruct
-    public void loadData() throws Exception {
+    public void loadDataFromFile() throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader("export.csv"))) {
             String line;
             boolean header = true;
@@ -66,6 +66,7 @@ public class PersonService {
         List<Person> results = new ArrayList<>();
 
         for (Person p : this.persons) {
+            // setter sammen fornavn og etternavn til en samlet streng som søket skal gjøres på
             StringBuilder fullName = new StringBuilder();
             fullName.append(p.getFirstName()).append(" ").append(p.getLastName());
 

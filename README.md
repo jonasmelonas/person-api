@@ -1,7 +1,7 @@
 # person-api
 ## GET endpoints
-get all persons: /persons
-get one person by email: /persons/{email}
+get all persons: /persons\
+get one person by email: /persons/{email}\
 search on name: /persons/search?name={name}
 
 ## POST endpoints
